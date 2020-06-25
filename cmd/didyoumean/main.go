@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"path"
 	"strconv"
 	"strings"
 )
@@ -15,7 +16,8 @@ func main() {
 	var cmdStatus int
 
 	if 1 == len(os.Args) {
-		help(os.Args[0])
+		help(path.Base(os.Args[0]))
+		os.Exit(1)
 	}
 	args := os.Args[1:]
 
@@ -78,6 +80,8 @@ func main() {
 	os.Exit(cmdStatus)
 }
 
+// fmtMsg reformats the message as a menu with options and returns the
+// suggestions.
 func fmtMsg(msg string, args []string) (string, []string) {
 	lines := []string{}
 	opts := []string{}
@@ -117,6 +121,7 @@ func fmtMsg(msg string, args []string) (string, []string) {
 	), opts
 }
 
+//
 func handleErr(err error, status int) int {
 	if nil != err {
 		if exiterr, ok := err.(*exec.ExitError); ok {
@@ -130,6 +135,7 @@ func handleErr(err error, status int) int {
 	return 0
 }
 
+//
 func help(name string) {
-	fmt.Println("this is help text")
+	fmt.Println("Usage:\n   ", name, "<command> [arguments]")
 }
