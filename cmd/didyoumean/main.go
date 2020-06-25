@@ -16,7 +16,7 @@ func main() {
 	var cmdStatus int
 
 	if 1 == len(os.Args) {
-		help(path.Base(os.Args[0]))
+		help(os.Args[0])
 		os.Exit(1)
 	}
 	args := os.Args[1:]
@@ -137,5 +137,5 @@ func handleErr(err error, status int) int {
 
 //
 func help(name string) {
-	fmt.Println("Usage:\n   ", name, "<command> [arguments]")
+	fmt.Println("Usage:\n   ", path.Base(name), "<command> [arguments]")
 }
