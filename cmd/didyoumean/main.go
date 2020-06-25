@@ -103,8 +103,12 @@ func fmtMsg(msg string, args []string) (string, []string) {
 	}
 
 	optlines := []string{}
-	for optn, opt := range opts {
-		optlines = append(optlines, fmt.Sprintf("        %d: %s", optn+1, opt))
+	if len(opts) > 1 {
+		for optn, opt := range opts {
+			optlines = append(optlines, fmt.Sprintf("        %d: %s", optn+1, opt))
+		}
+	} else {
+		optlines = []string{"        " + opts[0]}
 	}
 	return fmt.Sprintf(strings.Join(lines, "\n"),
 		preposition,
