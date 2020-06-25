@@ -1,6 +1,6 @@
 # didyoumean
 
-Turns `The most similar command` and `Did you mean` prompts for CLI commands into menus that accept input and executes a corrected command.
+Turns `The most similar command` and `Did you mean` error prompts for CLI commands into menus that accept input and executes a corrected command.
 
 ## usage
 
