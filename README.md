@@ -7,7 +7,7 @@ Turns `The most similar command` and `Did you mean` error prompts for CLI comman
 ```
 $ didyoumean git stats
     Did you mean this?
-        1: status
+        status
 
 [Y/n] > y
 executing git status...
