@@ -4,7 +4,7 @@ Turns `The most similar command` and `Did you mean` error prompts for CLI comman
 
 ## bash version
 
-The bash version is a bit slower but it maintains shell environment (colors, etc.)
+The [bash version](didyoumean.sh) is a bit slower but it maintains shell environment (colors, etc.)
 
 ## usage
 
