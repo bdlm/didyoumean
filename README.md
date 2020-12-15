@@ -2,6 +2,10 @@
 
 Turns `The most similar command` and `Did you mean` error prompts for CLI commands into menus that accept input and executes a corrected command.
 
+## bash version
+
+The [bash version](didyoumean.sh) is a bit slower but it maintains shell environment (colors, etc.)
+
 ## usage
 
 ```
