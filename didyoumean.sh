@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # didyoumean error manager
-__ext_didyoumean() {
+__didyoumean() {
     local tmpfile=$(mktemp)
     orig_cmd=$2
     "$@" 2> $tmpfile
@@ -82,4 +82,4 @@ __ext_didyoumean() {
         return $exit_code
     fi
 }
-export -f __ext_didyoumean
+export -f __didyoumean
