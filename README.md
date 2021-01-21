@@ -12,7 +12,9 @@ The [bash version](didyoumean.sh) is a bit slower but it maintains shell environ
 $ alias git="didyoumean git"
 
 $ alias kubectl="didyoumean kubectl"
+```
 
+```
 $ git stats
     Did you mean this?
         status
