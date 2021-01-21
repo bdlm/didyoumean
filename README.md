@@ -9,9 +9,11 @@ The [bash version](didyoumean.sh) is a bit slower but it maintains shell environ
 ## usage
 
 ```
-$ alias git="didyoumean git"
+$ source didyoumean.sh
 
-$ alias kubectl="didyoumean kubectl"
+$ alias git="__didyoumean git"
+
+$ alias kubectl="__didyoumean kubectl"
 ```
 
 ```
