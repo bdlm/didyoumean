@@ -9,7 +9,11 @@ The [bash version](didyoumean.sh) is a bit slower but it maintains shell environ
 ## usage
 
 ```
-$ didyoumean git stats
+$ alias git="didyoumean git"
+
+$ alias kubectl="didyoumean kubectl"
+
+$ git stats
     Did you mean this?
         status
 
@@ -23,7 +27,7 @@ nothing to commit, working tree clean
 ```
 
 ```
-$ didyoumean git rst --hard origin/master
+$ git rst --hard origin/master
     Did you mean one of these?
         1: first
         2: reset
@@ -37,7 +41,7 @@ HEAD is now at 3db57b1 update README.md
 ```
 
 ```
-$ didyoumean kubectl git deploy
+$ kubectl git deploy
     Did you mean one of these?
         1: set
         2: get
