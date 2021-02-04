@@ -3,6 +3,7 @@
 # didyoumean error manager
 __didyoumean() {
     local tmpfile=$(mktemp)
+    local thatswhatimeant=0
     orig_cmd=$2
     "$@" 2> $tmpfile
     exit_code=$?
@@ -75,9 +76,14 @@ __didyoumean() {
                 echo "executing $1 $2 ${options[$option]} ${@:4}"
                 echo
                 $1 $2 ${options[$option]} ${@:4}
+
             fi
+
+            thatswhatimeant=1
         fi
-    else
+    fi
+
+    if [ "0" = "$thatswhatimeant" ]; then
         echo "$dym_errors"
         return $exit_code
     fi
