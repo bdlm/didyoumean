@@ -66,26 +66,29 @@ __didyoumean() {
             IFS=$old_IFS
 
             # if input is not no/quit
-            if [ "0" != "$option" ] && [ "n" != "$option" ] && [ "N" != "$option" ]; then
+            if [ "0" = "$option" ] || [ "n" = "$option" ] || [ "N" = "$option" ] || [ "q" = "$option" ]; then
+                option="quit"
                 # set default option if none given
-                if [ "" = "$option" ] || [ "Y" = "$option" ] || [ "y" = "$option" ]; then
-                    option=1
-                fi
+            elif [ "" = "$option" ] || [ "Y" = "$option" ] || [ "y" = "$option" ]; then
+                option=0
+            elif [ "$option" ] && [ -z "${option//[0-9]}" ]; then
                 # exec
                 option=$((option - 1))
+            else
+                option="quit"
+            fi
+            if [ "quit" = "$option" ]; then
+                echo "quit."
+            else
                 echo "executing $1 $2 ${options[$option]} ${@:4}"
                 echo
                 $1 $2 ${options[$option]} ${@:4}
-
+                thatswhatimeant=1
             fi
-
-            thatswhatimeant=1
+        else
+            echo "$dym_errors"
+            return $exit_code
         fi
-    fi
-
-    if [ "0" = "$thatswhatimeant" ]; then
-        echo "$dym_errors"
-        return $exit_code
     fi
 }
 export -f __didyoumean
